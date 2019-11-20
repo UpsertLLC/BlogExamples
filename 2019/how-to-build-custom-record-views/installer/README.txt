@@ -1,0 +1,1 @@
+This is an example installer package generated from the blog post https://upsertconsulting.com/blog/2019/how-to-build-custom-record-views/
