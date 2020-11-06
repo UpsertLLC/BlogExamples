@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "9786f4f5-7b67-436c-8329-ddffb42548b1",
+		"name": "SugarCRM Integrate APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0642d2a5-d8ab-4760-a6af-962ce16ae800",
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"",
+							"//store our access token",
+							"postman.setEnvironmentVariable(\"access_token\", response.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{rest}}/oauth2/token?platform=base&username={{username}}&password={{password}}&client_id=sugar&client_secret=&grant_type=password",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{rest}}",
+						"oauth2",
+						"token"
+					],
+					"query": [
+						{
+							"key": "platform",
+							"value": "base"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}"
+						},
+						{
+							"key": "client_id",
+							"value": "sugar"
+						},
+						{
+							"key": "client_secret",
+							"value": ""
+						},
+						{
+							"key": "grant_type",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accounts - Populate Sync ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "95fa3ff8-cce4-4a9e-91d2-b926fb59de0b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "OAuth-Token",
+						"type": "text",
+						"value": "{{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/{{rest}}/integrate/Accounts/3b645ae2-1fd0-11eb-87c8-063b0cd98a86/sync_key/1234",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{rest}}",
+						"integrate",
+						"Accounts",
+						"3b645ae2-1fd0-11eb-87c8-063b0cd98a86",
+						"sync_key",
+						"1234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accounts - Fetch By Sync ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9b73a32c-8604-4b14-b6c6-6b50a649f838",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "OAuth-Token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/{{rest}}/Accounts/sync_key/1234",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{rest}}",
+						"Accounts",
+						"sync_key",
+						"1234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accounts - Upsert Record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0958cdae-33d4-4aca-8d6e-593e22fd89df",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "OAuth-Token",
+						"type": "text",
+						"value": "{{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/{{rest}}/Accounts/sync_key/1234?name=SugarCRM",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{rest}}",
+						"Accounts",
+						"sync_key",
+						"1234"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "SugarCRM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accounts - Delete By Sync ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30453f0c-9751-4b62-a872-c3028a6bb58c",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "OAuth-Token",
+						"type": "text",
+						"value": "{{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/{{rest}}/Accounts/sync_key/1234",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{rest}}",
+						"Accounts",
+						"sync_key",
+						"1234"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
