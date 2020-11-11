@@ -89,7 +89,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/{{rest}}/integrate/Accounts/3b645ae2-1fd0-11eb-87c8-063b0cd98a86/sync_key/1234",
+					"raw": "{{url}}/{{rest}}/integrate/Accounts/391934ce-1fd0-11eb-a666-063b0cd98a86/sync_key/1234",
 					"host": [
 						"{{url}}"
 					],
@@ -97,7 +97,7 @@
 						"{{rest}}",
 						"integrate",
 						"Accounts",
-						"3b645ae2-1fd0-11eb-87c8-063b0cd98a86",
+						"391934ce-1fd0-11eb-a666-063b0cd98a86",
 						"sync_key",
 						"1234"
 					]
@@ -129,12 +129,13 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/{{rest}}/Accounts/sync_key/1234",
+					"raw": "{{url}}/{{rest}}/integrate/Accounts/sync_key/1234",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"{{rest}}",
+						"integrate",
 						"Accounts",
 						"sync_key",
 						"1234"
@@ -167,12 +168,13 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/{{rest}}/Accounts/sync_key/1234?name=SugarCRM",
+					"raw": "{{url}}/{{rest}}/integrate/Accounts/sync_key/1234?name=SugarCRM",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"{{rest}}",
+						"integrate",
 						"Accounts",
 						"sync_key",
 						"1234"
@@ -211,12 +213,13 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/{{rest}}/Accounts/sync_key/1234",
+					"raw": "{{url}}/{{rest}}/integrate/Accounts/sync_key/1234",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"{{rest}}",
+						"integrate",
 						"Accounts",
 						"sync_key",
 						"1234"
